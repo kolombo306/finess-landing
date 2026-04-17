@@ -1,0 +1,214 @@
+/* DZ Coaching — foundational tokens */
+/* Load fonts via CDN (default). Swap with local @font-face if fonts/ is populated. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&display=swap");
+
+:root {
+  /* -------- Color: primitive -------- */
+  --dz-black: #0a0a0a;
+  --dz-card: #141414;
+  --dz-card-2: #1a1a1a;
+  --dz-border: #262626;
+  --dz-border-soft: #1f1f1f;
+
+  --dz-gold: #d4a843;
+  --dz-gold-light: #e8c96a;
+  --dz-gold-dark: #b8922e;
+
+  --dz-white: #ffffff;
+
+  /* -------- Color: semantic -------- */
+  --dz-bg: var(--dz-black);
+  --dz-bg-elevated: var(--dz-card);
+
+  --dz-fg-1: rgba(255, 255, 255, 0.92); /* primary body */
+  --dz-fg-2: rgba(255, 255, 255, 0.70); /* secondary body */
+  --dz-fg-3: rgba(255, 255, 255, 0.50); /* eyebrow, muted */
+  --dz-fg-4: rgba(255, 255, 255, 0.30); /* legal, disclaimer */
+
+  --dz-accent: var(--dz-gold);
+  --dz-accent-hover: var(--dz-gold-light);
+  --dz-on-accent: #000000;
+
+  --dz-divider: var(--dz-border);
+
+  /* -------- Gradients -------- */
+  --dz-grad-gold: linear-gradient(135deg, #d4a843, #e8c96a);
+  --dz-grad-gold-btn: linear-gradient(135deg, #d4a843, #b8922e);
+  --dz-grad-gold-btn-hover: linear-gradient(135deg, #e8c96a, #d4a843);
+  --dz-grad-hero-scrim: linear-gradient(to top, #0a0a0a 0%, rgba(10, 10, 10, 0.6) 50%, transparent 100%);
+
+  /* -------- Shadow -------- */
+  --dz-shadow-card-hover: 0 12px 40px rgba(212, 168, 67, 0.15);
+  --dz-shadow-btn-hover: 0 8px 30px rgba(212, 168, 67, 0.30);
+  --dz-shadow-portrait-glow: 0 0 60px rgba(212, 168, 67, 0.20);
+  --dz-shadow-text-on-photo: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  /* -------- Radii (sharp / hard-edged system — no rounding) -------- */
+  --dz-radius-sm: 0;
+  --dz-radius-md: 0;     /* buttons */
+  --dz-radius-lg: 0;     /* stat chips, gallery */
+  --dz-radius-xl: 0;     /* big cards */
+  --dz-radius-full: 9999px; /* reserved for avatar / true circle only */
+
+  /* -------- Spacing (4px grid) -------- */
+  --dz-space-1: 4px;
+  --dz-space-2: 8px;
+  --dz-space-3: 12px;
+  --dz-space-4: 16px;
+  --dz-space-5: 20px;
+  --dz-space-6: 24px;
+  --dz-space-8: 32px;
+  --dz-space-10: 40px;
+  --dz-space-12: 48px;
+  --dz-space-16: 64px;
+  --dz-space-20: 80px;
+  --dz-space-24: 96px;
+
+  /* -------- Layout -------- */
+  --dz-container: 1280px;
+  --dz-container-pad: 16px;
+  --dz-container-pad-lg: 32px;
+
+  /* -------- Type family (locked — 2 faces only across project) -------- */
+  --dz-font-heading: "Unbounded", "Manrope", system-ui, sans-serif;
+  --dz-font-body: "Manrope", system-ui, -apple-system, sans-serif;
+  --dz-font-condensed: "Unbounded", "Manrope", sans-serif;
+
+  /* -------- Type scale -------- */
+  --dz-fs-eyebrow: 0.875rem;           /* 14px, tracked +0.3em */
+  --dz-fs-body-sm: 0.875rem;           /* 14px */
+  --dz-fs-body: 1rem;                  /* 16px */
+  --dz-fs-body-lg: 1.125rem;           /* 18px */
+  --dz-fs-body-xl: 1.25rem;            /* 20px */
+  --dz-fs-h4: 1.25rem;                 /* 20px */
+  --dz-fs-h3: clamp(1.25rem, 2vw, 1.875rem);
+  --dz-fs-h2: clamp(1.875rem, 4vw, 3rem);
+  --dz-fs-h1: clamp(2.2rem, 8vw, 4.7rem);
+  --dz-fs-stat: clamp(2.5rem, 5vw, 4rem);
+
+  --dz-lh-tight: 0.95;
+  --dz-lh-heading: 1.1;
+  --dz-lh-body: 1.6;
+
+  --dz-track-tight: 0;
+  --dz-track-eyebrow: 0.3em;
+  --dz-track-caps: 0.16em;
+
+  /* -------- Motion -------- */
+  --dz-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dz-ease-std: ease;
+  --dz-dur-fast: 0.3s;
+  --dz-dur-med: 0.6s;
+  --dz-dur-slow: 0.8s;
+}
+
+/* ------------------------------------------------------------------
+   Semantic typographic classes (match site's spec)
+------------------------------------------------------------------ */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--dz-font-body);
+  background: var(--dz-bg);
+  color: var(--dz-fg-1);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  line-height: var(--dz-lh-body);
+}
+
+.dz-h1 {
+  font-family: var(--dz-font-heading);
+  font-weight: 700;
+  font-size: var(--dz-fs-h1);
+  line-height: var(--dz-lh-tight);
+  letter-spacing: var(--dz-track-tight);
+  text-transform: uppercase;
+  color: var(--dz-fg-1);
+}
+.dz-h2 {
+  font-family: var(--dz-font-heading);
+  font-weight: 700;
+  font-size: var(--dz-fs-h2);
+  line-height: var(--dz-lh-heading);
+  text-transform: uppercase;
+  color: var(--dz-fg-1);
+}
+.dz-h3 {
+  font-family: var(--dz-font-heading);
+  font-weight: 700;
+  font-size: var(--dz-fs-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--dz-fg-1);
+}
+.dz-h4 {
+  font-family: var(--dz-font-heading);
+  font-weight: 600;
+  font-size: var(--dz-fs-h4);
+  text-transform: uppercase;
+}
+.dz-eyebrow {
+  font-family: var(--dz-font-heading);
+  font-weight: 500;
+  font-size: var(--dz-fs-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: var(--dz-track-eyebrow);
+  color: var(--dz-gold);
+}
+.dz-caps {
+  text-transform: uppercase;
+  letter-spacing: var(--dz-track-caps);
+}
+.dz-body {
+  font-family: var(--dz-font-body);
+  font-size: var(--dz-fs-body);
+  color: var(--dz-fg-2);
+  line-height: var(--dz-lh-body);
+}
+.dz-body-lg {
+  font-family: var(--dz-font-body);
+  font-size: var(--dz-fs-body-lg);
+  color: var(--dz-fg-2);
+  line-height: var(--dz-lh-body);
+}
+.dz-stat {
+  font-family: var(--dz-font-heading);
+  font-weight: 700;
+  font-size: var(--dz-fs-stat);
+  line-height: 1;
+}
+.dz-gold-text {
+  background: var(--dz-grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.dz-gold-btn {
+  background: var(--dz-grad-gold-btn);
+  color: var(--dz-on-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--dz-track-caps);
+  border-radius: var(--dz-radius-md);
+  transition: background var(--dz-dur-fast) var(--dz-ease-std),
+              box-shadow var(--dz-dur-fast) var(--dz-ease-std),
+              transform var(--dz-dur-fast) var(--dz-ease-std);
+}
+.dz-gold-btn:hover {
+  background: var(--dz-grad-gold-btn-hover);
+  box-shadow: var(--dz-shadow-btn-hover);
+  transform: translateY(-2px);
+}
+
+.dz-card {
+  background: var(--dz-card);
+  border: 1px solid var(--dz-border);
+  border-radius: var(--dz-radius-xl);
+  padding: clamp(24px, 4vw, 40px);
+  transition: transform var(--dz-dur-fast) var(--dz-ease-std),
+              box-shadow var(--dz-dur-fast) var(--dz-ease-std);
+}
+.dz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--dz-shadow-card-hover);
+}
